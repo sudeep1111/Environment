@@ -27,7 +27,7 @@ jobs:
             "https://api.github.com/repos/sudeep1111/Environment/environments" \
             -d "{
                   \"name\": \"$ENVIRONMENT_NAME\",
-                  \"wait_timer\": 10
+                  \"wait_timer\": 50
                 }"
 
           echo "Environment created successfully."
