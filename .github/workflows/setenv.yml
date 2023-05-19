@@ -1,6 +1,8 @@
+
 name: Add Environment to New Repositories
 on:
-  workflow_dispatch:
+  repository_dispatch:
+    types: [created]
 
 jobs:
   add-environment:
@@ -14,20 +16,17 @@ jobs:
         run: |
           # Retrieve repository name
           REPO_NAME=$(basename $GITHUB_REPOSITORY)
-
           # Set environment name
-          environment: ${{ inputs.environment }}  
-
+          ENVIRONMENT_NAME="production"
           # Create environment
-          echo "Creating environment '$environment' for repository '$REPO_NAME'..."
+          echo "Creating environment '$ENVIRONMENT_NAME' for repository '$REPO_NAME'..."
           curl \
             -X POST \
-            -H "Authorization: Bearer ${{ secrets.TOKEN_GH }}" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
             "https://api.github.com/repos/$GITHUB_REPOSITORY/environments" \
             -d "{
                   \"name\": \"$ENVIRONMENT_NAME\",
                   \"wait_timer\": 10
                 }"
-
           echo "Environment created successfully."
