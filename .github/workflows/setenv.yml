@@ -1,7 +1,6 @@
 name: Add Environment to New Repositories
 on:
-  repository:
-    types: [created]
+  workflow_dispatch:
 
 jobs:
   add-environment:
