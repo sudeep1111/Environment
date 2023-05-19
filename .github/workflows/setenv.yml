@@ -1,7 +1,7 @@
 name: Add Environment to New Repositories
 on:
   workflow_dispatch:
- 
+
 jobs:
   add-environment:
     runs-on: ubuntu-latest
