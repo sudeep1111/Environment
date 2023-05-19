@@ -25,7 +25,7 @@ jobs:
             -X POST \
             -H "Authorization: Bearer ${{ secrets.TOKEN_GH }}" \
             -H "Accept: application/vnd.github.v3+json" \
-            "https://api.github.com/repos/sudeep1111/Environment/production" \
+            "https://api.github.com/repos/sudeep1111/Environment/Dev" \
             -d "{
                   \"name\": \"$ENVIRONMENT_NAME\",
                   \"wait_timer\": 50
