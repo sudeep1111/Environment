@@ -15,8 +15,9 @@ jobs:
           # Retrieve repository name
           REPO_NAME=$(basename $GITHUB_REPOSITORY)
 
-          # Set environment name
-          ENVIRONMENT_NAME="production"
+          - name: Create Dev Environment
+        run: |
+          echo "Creating Dev Environment"
 
           # Create environment
           echo "Creating environment '$ENVIRONMENT_NAME' for repository '$REPO_NAME'..."
