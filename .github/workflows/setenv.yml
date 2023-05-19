@@ -16,10 +16,10 @@ jobs:
           REPO_NAME=$(basename $GITHUB_REPOSITORY)
 
           # Set environment name
-          ENVIRONMENT_NAME="production"
+          environment: ${{ inputs.environment }}  
 
           # Create environment
-          echo "Creating environment '$ENVIRONMENT_NAME' for repository '$REPO_NAME'..."
+          echo "Creating environment '$environment' for repository '$REPO_NAME'..."
           curl \
             -X POST \
             -H "Authorization: Bearer ${{ secrets.TOKEN_GH }}" \
