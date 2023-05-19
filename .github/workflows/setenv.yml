@@ -2,7 +2,6 @@ name: Add Environment to New Repositories
 on:
   workflow_dispatch:
     inputs:
-      user_input:
       environment:
         required: true
         type: string   
